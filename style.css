@@ -1,18 +1,13 @@
-/* Скрываем системный курсор ВЕЗДЕ */
-* {
-    cursor: none !important;
-}
-
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
     color: white;
     overflow: hidden;
     background: black;
-    position: relative;
+    cursor: none;
 }
 
-/* Кастомный курсор */
+/* Кастомный курсор — всегда сверху */
 .cursor {
     position: fixed;
     width: 12px;
@@ -22,7 +17,7 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 12px white;
-    z-index: 999999;
+    z-index: 999999999;
 }
 
 /* Эффект клика */
@@ -35,8 +30,8 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
-    z-index: 999998;
     transition: transform 0.3s, opacity 0.3s;
+    z-index: 999999998;
 }
 
 .click-effect.active {
@@ -50,7 +45,7 @@ body {
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: 1;
+    z-index: -1;
 }
 
 .heart {
@@ -62,7 +57,6 @@ body {
     animation: fly linear infinite;
 }
 
-/* Полёт */
 @keyframes fly {
     from {
         transform: translateX(0) translateY(0) rotate(0deg);
@@ -81,6 +75,74 @@ body {
     border-radius: 20px;
     backdrop-filter: blur(10px);
     text-align: center;
-    position: relative;
-    z-index: 10;
+    animation: fadeIn 1.2s ease;
 }
+
+.avatar {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 3px solid #ffffff40;
+    margin-bottom: 15px;
+}
+
+.name {
+    margin: 0;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.handle {
+    margin: 5px 0 20px;
+    opacity: 0.7;
+}
+
+.tags span {
+    display: inline-block;
+    padding: 6px 12px;
+    margin: 4px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    font-size: 13px;
+    letter-spacing: 0.5px;
+}
+
+.info {
+    margin-top: 20px;
+    font-size: 14px;
+    opacity: 0.9;
+    line-height: 1.6;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.links {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    text-decoration: none;
+    color: white;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(6px);
+    transition: 0.25s;
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.btn:hover {
+    background: rgba(255,255,255,0.25);
+    transform: translateY(-3px);
+}
+
+.tg:hover { box-shadow: 0 0 12px #2AABEE; }
+.gh:hover { box-shadow: 0 0 12px #ffffff; }
+.ds:hover { box-shadow: 0 0 12px #5865F2; }
