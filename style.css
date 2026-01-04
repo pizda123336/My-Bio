@@ -5,50 +5,39 @@ body {
     overflow: hidden;
 }
 
-/* Анимированный градиентный фон */
-/* Космический анимированный фон */
+/* Космический фон со звёздами */
 .background {
     position: fixed;
     inset: 0;
-    background: radial-gradient(circle at 20% 20%, #1a1a1a, #000000 70%);
+    background: black;
     overflow: hidden;
     z-index: -1;
 }
 
-/* Звёзды */
-.background::before,
+/* Маленькие звезды */
+.background::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url("https://i.imgur.com/9yG8F8Z.png");
+    opacity: 0.6;
+    animation: starsMove 80s linear infinite;
+}
+
+/* Крупные звезды */
 .background::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-repeat: repeat;
-    background-size: 2px 2px;
-    animation: starMove 60s linear infinite;
-    opacity: 0.6;
+    background: url("https://i.imgur.com/3KcYQfP.png");
+    opacity: 0.4;
+    animation: starsMove 140s linear infinite;
 }
 
-/* Маленькие звёзды */
-.background::before {
-    background-image: radial-gradient(white 1px, transparent 1px);
-    animation-duration: 90s;
-}
-
-/* Крупные звёзды */
-.background::after {
-    background-image: radial-gradient(#7aaaff 1.5px, transparent 1.5px);
-    animation-duration: 140s;
-}
-
-@keyframes starMove {
+/* Плавное движение звёзд */
+@keyframes starsMove {
     from { transform: translateY(0); }
-    to { transform: translateY(-1000px); }
-}
-
-
-@keyframes gradientMove {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    to { transform: translateY(-1200px); }
 }
 
 .card {
@@ -128,7 +117,7 @@ body {
 }
 
 .tg:hover {
-    box-shadow: 0 0 12px #ffffff;
+    box-shadow: 0 0 12px #2AABEE;
 }
 
 .gh:hover {
@@ -136,5 +125,5 @@ body {
 }
 
 .ds:hover {
-    box-shadow: 0 0 12px #ffffff;
+    box-shadow: 0 0 12px #5865F2;
 }
