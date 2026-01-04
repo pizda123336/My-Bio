@@ -1,12 +1,14 @@
+/* Скрываем стандартный курсор */
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
     color: white;
     overflow: hidden;
     background: black;
+    cursor: none;
 }
 
-/* --- КАСТОМНЫЙ КУРСОР --- */
+/* Кастомный курсор */
 .cursor {
     position: fixed;
     width: 12px;
@@ -19,7 +21,20 @@ body {
     z-index: 9999;
 }
 
-/* --- СЕРДЕЧКИ --- */
+/* Эффект клика */
+.click-effect {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid white;
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    z-index: 9998;
+}
+
+/* Сердечки */
 .hearts {
     position: fixed;
     inset: 0;
@@ -35,6 +50,7 @@ body {
     color: white;
     opacity: 0.9;
     animation: fly linear infinite;
+    will-change: transform;
 }
 
 @keyframes fly {
@@ -46,7 +62,7 @@ body {
     }
 }
 
-/* --- КАРТОЧКА --- */
+/* Карточка */
 .card {
     width: 350px;
     margin: 80px auto;
