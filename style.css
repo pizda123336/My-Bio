@@ -1,3 +1,4 @@
+/* Скрываем системный курсор только у body */
 body {
     margin: 0;
     font-family: "Inter", sans-serif;
@@ -5,9 +6,17 @@ body {
     overflow: hidden;
     background: black;
     cursor: none;
+    height: 100vh;
+    width: 100vw;
 }
 
-/* Кастомный курсор — всегда сверху */
+/* Чтобы мышь отслеживалась по всей странице */
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+/* Кастомный курсор — ВСЕГДА СВЕРХУ */
 .cursor {
     position: fixed;
     width: 12px;
@@ -76,6 +85,8 @@ body {
     backdrop-filter: blur(10px);
     text-align: center;
     animation: fadeIn 1.2s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .avatar {
