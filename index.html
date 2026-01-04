@@ -53,11 +53,12 @@ for (let i = 0; i < 500; i++) {
     h.style.animationDelay = Math.random() * 5 + "s";
 
     // случайная скорость
-    h.style.animationDuration = 20
+    h.style.animationDuration = (5 + Math.random() * 10) + "s";
 
     document.querySelector(".hearts").appendChild(h);
 }
 </script>
+
 
 </body>
 </html>
