@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sounsy BIO</title>
+    <title>Сигма — профиль</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -45,6 +45,7 @@
     </div>
 </div>
 
+<script>
 // Генерация сердечек
 for (let i = 0; i < 300; i++) {
     const h = document.createElement("span");
@@ -65,7 +66,7 @@ document.addEventListener("mousemove", e => {
     cursor.style.top = e.clientY + "px";
 });
 
-// Вспышка при клике
+// Эффект клика
 const clickFx = document.querySelector(".click-effect");
 document.addEventListener("click", e => {
     clickFx.style.left = e.clientX + "px";
@@ -107,6 +108,7 @@ document.addEventListener("mousemove", e => {
         }
     });
 });
+</script>
 
 </body>
 </html>
