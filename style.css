@@ -6,14 +6,44 @@ body {
 }
 
 /* Анимированный градиентный фон */
+/* Космический анимированный фон */
 .background {
     position: fixed;
     inset: 0;
-    background: linear-gradient(120deg, #0f0f0f, #1c1c1c, #0f0f0f);
-    background-size: 300% 300%;
-    animation: gradientMove 12s ease infinite;
+    background: radial-gradient(circle at 20% 20%, #1a1a1a, #000000 70%);
+    overflow: hidden;
     z-index: -1;
 }
+
+/* Звёзды */
+.background::before,
+.background::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-repeat: repeat;
+    background-size: 2px 2px;
+    animation: starMove 60s linear infinite;
+    opacity: 0.6;
+}
+
+/* Маленькие звёзды */
+.background::before {
+    background-image: radial-gradient(white 1px, transparent 1px);
+    animation-duration: 90s;
+}
+
+/* Крупные звёзды */
+.background::after {
+    background-image: radial-gradient(#7aaaff 1.5px, transparent 1.5px);
+    animation-duration: 140s;
+}
+
+@keyframes starMove {
+    from { transform: translateY(0); }
+    to { transform: translateY(-1000px); }
+}
+
 
 @keyframes gradientMove {
     0% { background-position: 0% 50%; }
