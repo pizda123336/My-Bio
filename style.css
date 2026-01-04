@@ -9,7 +9,7 @@ body {
     position: relative;
 }
 
-/* Кастомный курсор — ВСЕГДА СВЕРХУ */
+/* --- КАСТОМНЫЙ КУРСОР (ВСЕГДА СВЕРХУ) --- */
 .cursor {
     position: fixed;
     width: 12px;
@@ -22,7 +22,7 @@ body {
     z-index: 999999;
 }
 
-/* Вспышка при клике — тоже сверху */
+/* --- ВСПЫШКА ПРИ КЛИКЕ (СТАБИЛЬНАЯ) --- */
 .click-effect {
     position: fixed;
     width: 20px;
@@ -33,9 +33,15 @@ body {
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
     z-index: 999998;
+    transition: transform 0.3s, opacity 0.3s;
 }
 
-/* Сердечки — под всем */
+.click-effect.active {
+    transform: translate(-50%, -50%) scale(3);
+    opacity: 0;
+}
+
+/* --- СЕРДЕЧКИ (НЕ БЛОКИРУЮТ МЫШКУ) --- */
 .hearts {
     position: fixed;
     inset: 0;
@@ -64,7 +70,7 @@ body {
     }
 }
 
-/* Карточка — НЕ блокирует мышку */
+/* --- КАРТОЧКА (НЕ ПЕРЕКРЫВАЕТ КУРСОР) --- */
 .card {
     width: 350px;
     margin: 80px auto;
