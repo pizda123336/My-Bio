@@ -8,6 +8,9 @@
 </head>
 <body>
 
+<!-- Кастомный курсор -->
+<div class="cursor"></div>
+
 <!-- Контейнер для сердечек -->
 <div class="hearts"></div>
 
@@ -39,26 +42,54 @@
     </div>
 </div>
 
-<!-- Генератор сердечек -->
+<!-- Генератор сердечек + эффекты мышки -->
 <script>
-for (let i = 0; i < 500; i++) {
+// Генерация сердечек
+for (let i = 0; i < 300; i++) {
     const h = document.createElement("span");
     h.textContent = "🤍";
     h.classList.add("heart");
 
-    // случайная позиция по вертикали
     h.style.top = Math.random() * 100 + "%";
-
-    // случайная задержка старта
     h.style.animationDelay = Math.random() * 5 + "s";
-
-    // случайная скорость
     h.style.animationDuration = (5 + Math.random() * 10) + "s";
 
     document.querySelector(".hearts").appendChild(h);
 }
-</script>
 
+// Кастомный курсор
+const cursor = document.querySelector(".cursor");
+document.addEventListener("mousemove", e => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+});
+
+// Эффекты 4 и 10 — убегание + раздвигание
+document.addEventListener("mousemove", e => {
+    const mx = e.clientX;
+    const my = e.clientY;
+
+    document.querySelectorAll(".heart").forEach(h => {
+        const rect = h.getBoundingClientRect();
+        const hx = rect.left + rect.width / 2;
+        const hy = rect.top + rect.height / 2;
+
+        const dx = hx - mx;
+        const dy = hy - my;
+        const dist = Math.sqrt(dx*dx + dy*dy);
+
+        if (dist < 200) {
+            const angle = Math.atan2(dy, dx);
+            const push = (200 - dist) * 0.5;
+
+            h.style.transform = `translate(${Math.cos(angle)*push}px, ${Math.sin(angle)*push}px)`;
+            h.style.transition = "transform 0.15s";
+        } else {
+            h.style.transform = "";
+        }
+    });
+});
+</script>
 
 </body>
 </html>
