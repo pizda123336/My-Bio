@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сигма — профиль</title>
+    <title>Sounsy BIO</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <!-- Кастомный курсор -->
 <div class="cursor"></div>
+
+<!-- Эффект клика -->
+<div class="click-effect"></div>
 
 <!-- Контейнер для сердечек -->
 <div class="hearts"></div>
@@ -42,7 +45,6 @@
     </div>
 </div>
 
-<!-- Генератор сердечек + эффекты мышки -->
 <script>
 // Генерация сердечек
 for (let i = 0; i < 300; i++) {
@@ -64,7 +66,25 @@ document.addEventListener("mousemove", e => {
     cursor.style.top = e.clientY + "px";
 });
 
-// Эффекты 4 и 10 — убегание + раздвигание
+// Вспышка при клике
+const clickFx = document.querySelector(".click-effect");
+
+document.addEventListener("click", e => {
+    clickFx.style.left = e.clientX + "px";
+    clickFx.style.top = e.clientY + "px";
+
+    clickFx.style.transition = "none";
+    clickFx.style.transform = "translate(-50%, -50%) scale(0)";
+    clickFx.style.opacity = "1";
+
+    requestAnimationFrame(() => {
+        clickFx.style.transition = "0.3s";
+        clickFx.style.transform = "translate(-50%, -50%) scale(3)";
+        clickFx.style.opacity = "0";
+    });
+});
+
+// Раздвигание и убегание сердечек
 document.addEventListener("mousemove", e => {
     const mx = e.clientX;
     const my = e.clientY;
