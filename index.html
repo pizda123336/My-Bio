@@ -66,47 +66,17 @@ document.addEventListener("mousemove", e => {
     cursor.style.top = e.clientY + "px";
 });
 
-// Эффект клика
+// Эффект клика — стабильная версия
 const clickFx = document.querySelector(".click-effect");
+
 document.addEventListener("click", e => {
     clickFx.style.left = e.clientX + "px";
     clickFx.style.top = e.clientY + "px";
 
-    clickFx.style.transition = "none";
-    clickFx.style.transform = "translate(-50%, -50%) scale(0)";
-    clickFx.style.opacity = "1";
+    clickFx.classList.remove("active");
+    void clickFx.offsetWidth; // перезапуск анимации
 
-    requestAnimationFrame(() => {
-        clickFx.style.transition = "0.3s";
-        clickFx.style.transform = "translate(-50%, -50%) scale(3)";
-        clickFx.style.opacity = "0";
-    });
-});
-
-// Раздвигание и убегание сердечек
-document.addEventListener("mousemove", e => {
-    const mx = e.clientX;
-    const my = e.clientY;
-
-    document.querySelectorAll(".heart").forEach(h => {
-        const rect = h.getBoundingClientRect();
-        const hx = rect.left + rect.width / 2;
-        const hy = rect.top + rect.height / 2;
-
-        const dx = hx - mx;
-        const dy = hy - my;
-        const dist = Math.sqrt(dx*dx + dy*dy);
-
-        if (dist < 200) {
-            const angle = Math.atan2(dy, dx);
-            const push = (200 - dist) * 0.5;
-
-            h.style.transform = `translate(${Math.cos(angle)*push}px, ${Math.sin(angle)*push}px)`;
-            h.style.transition = "transform 0.15s";
-        } else {
-            h.style.transform = "";
-        }
-    });
+    clickFx.classList.add("active");
 });
 </script>
 
