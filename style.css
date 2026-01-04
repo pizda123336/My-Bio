@@ -154,6 +154,6 @@ body {
     transform: translateY(-3px);
 }
 
-.tg:hover { box-shadow: 0 0 12px #2AABEE; }
+.tg:hover { box-shadow: 0 0 12px #ffffff; }
 .gh:hover { box-shadow: 0 0 12px #ffffff; }
-.ds:hover { box-shadow: 0 0 12px #5865F2; }
+.ds:hover { box-shadow: 0 0 12px #ffffff; }
