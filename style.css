@@ -1,13 +1,22 @@
-body {
+/* Гарантируем, что html и body занимают весь экран */
+html, body {
     margin: 0;
-    font-family: "Inter", sans-serif;
-    color: white;
-    overflow: hidden;
-    background: black;
+    padding: 0;
+    height: 100%;
+    width: 100%;
     cursor: none;
 }
 
-/* Кастомный курсор — всегда сверху */
+/* Основной стиль body */
+body {
+    font-family: "Inter", sans-serif;
+    color: white;
+    background: black;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Кастомный курсор — ВСЕГДА СВЕРХУ */
 .cursor {
     position: fixed;
     width: 12px;
@@ -76,6 +85,8 @@ body {
     backdrop-filter: blur(10px);
     text-align: center;
     animation: fadeIn 1.2s ease;
+    position: relative;
+    z-index: 10;
 }
 
 .avatar {
