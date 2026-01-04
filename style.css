@@ -6,7 +6,7 @@ body {
     background: black;
 }
 
-/* --- ЗВЁЗДЫ --- */
+/* --- КОСМОС --- */
 
 #stars, #stars2, #stars3 {
     position: fixed;
@@ -48,6 +48,51 @@ body {
 @keyframes animStar {
     from { transform: translateY(0); }
     to { transform: translateY(-2000px); }
+}
+
+/* --- ЛЕТЯЩИЕ СЕРДЕЧКИ --- */
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.hearts::before,
+.hearts::after {
+    content: "❤️";
+    position: absolute;
+    font-size: 22px;
+    opacity: 0.8;
+    animation: fly 8s linear infinite;
+}
+
+/* Первое сердечко */
+.hearts::before {
+    top: 20%;
+    left: -50px;
+    animation-duration: 10s;
+    animation-delay: 0s;
+}
+
+/* Второе сердечко */
+.hearts::after {
+    top: 70%;
+    left: -50px;
+    animation-duration: 14s;
+    animation-delay: 3s;
+}
+
+/* Полёт по горизонтали */
+@keyframes fly {
+    from {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    to {
+        transform: translateX(120vw) translateY(-20px) rotate(20deg);
+    }
 }
 
 /* --- КАРТОЧКА --- */
