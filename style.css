@@ -6,9 +6,10 @@ body {
     overflow: hidden;
     background: black;
     cursor: none;
+    position: relative;
 }
 
-/* Кастомный курсор */
+/* Кастомный курсор — ВСЕГДА СВЕРХУ */
 .cursor {
     position: fixed;
     width: 12px;
@@ -18,10 +19,10 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%);
     box-shadow: 0 0 12px white;
-    z-index: 9999;
+    z-index: 999999;
 }
 
-/* Эффект клика */
+/* Вспышка при клике — тоже сверху */
 .click-effect {
     position: fixed;
     width: 20px;
@@ -31,16 +32,16 @@ body {
     pointer-events: none;
     transform: translate(-50%, -50%) scale(0);
     opacity: 0;
-    z-index: 9998;
+    z-index: 999998;
 }
 
-/* Сердечки */
+/* Сердечки — под всем */
 .hearts {
     position: fixed;
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-    z-index: -1;
+    z-index: 1;
 }
 
 .heart {
@@ -53,6 +54,7 @@ body {
     will-change: transform;
 }
 
+/* Полёт сердечек */
 @keyframes fly {
     from {
         transform: translateX(0) translateY(0) rotate(0deg);
@@ -62,7 +64,7 @@ body {
     }
 }
 
-/* Карточка */
+/* Карточка — НЕ блокирует мышку */
 .card {
     width: 350px;
     margin: 80px auto;
@@ -72,6 +74,9 @@ body {
     backdrop-filter: blur(10px);
     text-align: center;
     animation: fadeIn 1.2s ease;
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
 }
 
 .avatar {
