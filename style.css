@@ -91,14 +91,14 @@ body {
 
 /* Индивидуальные цвета */
 .tg:hover {
-    box-shadow: 0 0 12px #2AABEE;
+    box-shadow: 0 0 12px #ffffff;
 }
 
-.gh:hover {
+.steam:hover {
     box-shadow: 0 0 12px #ffffff;
 }
 
 .ds:hover {
-    box-shadow: 0 0 12px #5865F2;
+    box-shadow: 0 0 12px #ffffff;
 }
 
