@@ -5,11 +5,11 @@ body {
     overflow: hidden;
 }
 
-/* Космический фон со звёздами */
+/* Космический фон без картинок */
 .background {
     position: fixed;
     inset: 0;
-    background: black;
+    background: radial-gradient(circle at 50% 50%, #0a0a0f, #000);
     overflow: hidden;
     z-index: -1;
 }
@@ -19,9 +19,14 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("https://i.imgur.com/9yG8F8Z.png");
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(white 1px, transparent 1px);
+    background-size: 3px 3px, 2px 2px, 1px 1px;
+    background-position: 0 0, 50px 80px, 130px 20px;
+    animation: stars1 60s linear infinite;
     opacity: 0.6;
-    animation: starsMove 80s linear infinite;
 }
 
 /* Крупные звезды */
@@ -29,13 +34,22 @@ body {
     content: "";
     position: absolute;
     inset: 0;
-    background: url("https://i.imgur.com/3KcYQfP.png");
+    background-image:
+        radial-gradient(#8ab4ff 2px, transparent 2px),
+        radial-gradient(#8ab4ff 2px, transparent 2px);
+    background-size: 4px 4px, 3px 3px;
+    background-position: 20px 40px, 100px 120px;
+    animation: stars2 120s linear infinite;
     opacity: 0.4;
-    animation: starsMove 140s linear infinite;
 }
 
-/* Плавное движение звёзд */
-@keyframes starsMove {
+/* Плавное движение */
+@keyframes stars1 {
+    from { transform: translateY(0); }
+    to { transform: translateY(-800px); }
+}
+
+@keyframes stars2 {
     from { transform: translateY(0); }
     to { transform: translateY(-1200px); }
 }
