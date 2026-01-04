@@ -8,30 +8,8 @@
 </head>
 <body>
 
-<!-- МНОГО БЕЛЫХ СЕРДЕЧЕК -->
-<div class="hearts">
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-    <span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span><span>🤍</span>
-</div>
+<!-- Контейнер для сердечек -->
+<div class="hearts"></div>
 
 <div class="card">
     <img src="assets/avatar.jpg" class="avatar">
@@ -59,8 +37,27 @@
         <a href="https://steamcommunity.com/profiles/76561199809013709/" class="btn gh">Steam</a>
         <a href="https://discord.gg/EjVttyQr" class="btn ds">Discord</a>
     </div>
-
 </div>
+
+<!-- Генератор сердечек -->
+<script>
+for (let i = 0; i < 200; i++) {
+    const h = document.createElement("span");
+    h.textContent = "🤍";
+    h.classList.add("heart");
+
+    // случайная позиция по вертикали
+    h.style.top = Math.random() * 100 + "%";
+
+    // случайная задержка старта
+    h.style.animationDelay = Math.random() * 5 + "s";
+
+    // случайная скорость
+    h.style.animationDuration = 5 + Math.random() * 10 + "s";
+
+    document.querySelector(".hearts").appendChild(h);
+}
+</script>
 
 </body>
 </html>
